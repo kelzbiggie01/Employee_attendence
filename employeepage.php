@@ -23,6 +23,7 @@
                 <p>Click Checkin to add your todays attendence<br>Please fill the form below if you will not be present
                     on the office </p>
                 <a href="employeedashboard.php"><button type="button" class="btn btn-success">Check-in</button></a>
+                <a href=""><button type="button" class="btn btn-primary ml-5">Check Permission</button></a>
                 <hr>
                 <p class="mb-0">Make sure your request is granted by your HR officer..Have a nice Day</p>
             </div>
