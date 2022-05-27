@@ -25,12 +25,20 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-6">
                 <div class="">
                     <h5>Your last seven checkin</h5>
                 </div>
             </div>
+            <div class="col-md-6">
+                <div class="">
+                    <button class="btn btn-primary float-md-right mb-2">Check-out</button>
+                </div>
+            </div>
+        </div>
 
+
+        <div class="row">
             <div class="col-md-12">
                 <div class="">
                     <div class="col-md-12">
@@ -78,6 +86,20 @@
                     </div>
                 </div>
             </div>
+        </div>
+
+        <div class="row text-center">
+            <div class="col-md-4 bg-primary">
+                permission
+            </div>
+
+            <div class="col-md-4 bg-warning">
+                absents
+            </div>
+            <div class="col-md-4 bg-success">
+                totoal check-in
+            </div>
+            
         </div>
     </div>
     </div>
