@@ -30,7 +30,7 @@
                         <form>
                             <div class="form-group">
                                 <label for="name">Fullname:</label>
-                                <input type="name" class="form-control" placeholder="Enter Fullname">
+                                <input type="text" name="name" class="form-control" placeholder="Enter Fullname">
                             </div>
                             <div class="form-group">
                                 <label for="sel1">Select Department:</label>
@@ -43,7 +43,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="date">Birth date:</label>
-                                <input type="b_date" class="form-control">
+                                <input type="date" name="b_date" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label for="N_ID">National ID #:</label>
@@ -53,7 +53,7 @@
                     <div class="col-sm-12 col-md-4">
                         <div class="form-group">
                             <label for="email">Email address:</label>
-                            <input type="email" class="form-control" placeholder="Enter email" id="email">
+                            <input type="email" name="email" class="form-control" placeholder="Enter email" id="email">
                         </div>
 
                         <div class="form-group">
