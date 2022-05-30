@@ -1,3 +1,38 @@
+
+<?php
+require('engines/connection.php');
+
+if(isset($_POST['login'])){
+  //to prevent from mysqli injection  
+        $username = stripcslashes($_POST['username']);  
+        $password = stripcslashes($_POST['password']);  
+        $username = mysqli_real_escape_string($conn, $username);  
+        $password = mysqli_real_escape_string($conn, $password);
+
+    
+  $query = "SELECT * FROM emp_tbl WHERE email = '$username' AND password = '$password'";  
+        $result = mysqli_query($conn, $query);   
+
+        $row = mysqli_fetch_array($result, MYSQLI_ASSOC);  
+        $count = mysqli_num_rows($result);  
+          
+        if($count == 1){
+            // Start the session
+                session_start();
+                $_SESSION['emp_id'] = $row['emp_id'];
+                $_SESSION["emp_username"] = $row['fullname'];
+
+
+            header('Location: employee_page.php');
+
+        }else{
+            die("Sorry wrong username or password");
+        }  
+}
+
+
+?>
+
 <!doctype html>
 <html lang="en">
 
@@ -22,16 +57,16 @@
                 <div class="card-body">
                     <!-- <h5 class="card-title">Special title treatment</h5> -->
                     <p class="card-text">
-                    <form action="" method="">
+                    <form action="" method="POST">
                         <div class="form-outline m-3">
-                            <input type="text" class="form-control" placeholder="username" />
+                            <input type="text" name="username" class="form-control" placeholder="username" />
                         </div>
 
                         <div class="form-outline m-3">
-                            <input type="password" class="form-control" placeholder="password" />
+                            <input type="password" name="password" class="form-control" placeholder="password" />
                         </div>
                         <div class="form-outline m-3">
-                            <a href="employeepage.php" class="btn btn-primary">login</a>
+                            <button type="submit" name="login" class="btn btn-primary">login</button>
                         </div>
                     </form>
                     </p>

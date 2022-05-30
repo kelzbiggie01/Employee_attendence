@@ -15,12 +15,12 @@
     $phn_number = $_POST['phn_number'];
     $gender = $_POST['gender'];
 
-    $query = "INSERT into emp_tbl (fullname,email,position,department,phone_number,birthdate,marital_status,gender,nat_id,pention_fund) VALUES ('$name','$email','$position','$department','$phn_number','$b_date','$marital_status','$gender','$nat_id','$pention')";
+    $query = "INSERT into emp_tbl (fullname,email,password,position,department,phone_number,birthdate,marital_status,gender,nat_id,pention_fund) VALUES ('$name','$email','$phn_number','$position','$department','$phn_number','$b_date','$marital_status','$gender','$nat_id','$pention')";
     
 
 
     if (mysqli_query($conn, $query)) {
-    echo "New record created successfully";
+    echo "<script> alert('New Employee added successfully'); window.location='../add_employee.php'</script>";
      } else {
         echo "Error: " . $query . "<br>" . mysqli_error($conn);
     }

@@ -1,3 +1,7 @@
+<?php
+    session_start();
+?>
+
 <!doctype html>
 <html lang="en">
 
@@ -93,12 +97,12 @@
                         <div class="form-group pt-4">
                             <div class="form-check-inline">
                                 <label class="form-check-label">
-                                    <input type="radio" class="form-check-input" name="gender">Male
+                                    <input type="radio" class="form-check-input" name="gender" value="male">Male
                                 </label>
                             </div>
                             <div class="form-check-inline">
                                 <label class="form-check-label">
-                                    <input type="radio" class="form-check-input" name="gender">Female
+                                    <input type="radio" class="form-check-input" name="gender" value="female">Female
                                 </label>
                             </div>
                         </div>
