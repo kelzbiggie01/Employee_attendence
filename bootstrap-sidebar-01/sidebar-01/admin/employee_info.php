@@ -11,21 +11,31 @@ $ret=mysqli_query($conn,"select * from emp_tbl where emp_id='$emp_id'");
 
 $count = mysqli_num_rows($ret); 
 if($count==0){
-    header('Location: all_Employee.php');
+    header('Location: all_employee.php');
 }
-
 $row=mysqli_fetch_array($ret);
 
+if (@$_POST['submit']) {
+    $position = $_POST['position'];
 
+    
+    $query1 = "update emp_tbl set position='$position' where emp_id='$emp_id'";
+    // $updat = mysqli_query($conn,$query1);
+    if (mysqli_query($conn,$query1)) {
+        @$msg='<div class="alert alert-success mt-3" role="alert">Position was changed successfully</div>';
+    }else{
+        @$msg='<div class="alert alert-danger" role="alert">Sorry something went wrong try again</div>';    
+    }
 
-
+    
+    
+}
 ?>
-
 
 <!doctype html>
 <html lang="en">
   <head>
-  	<title>Sidebar 01</title>
+  	<title>Employee Attendence</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -50,14 +60,15 @@ $row=mysqli_fetch_array($ret);
                 <h3>Employee Informations</h3>
             </div>
             <div class="col-6-md">
-                <div class="float-right bg-secondary p-1">
+                <div class="float-right text-dark p-1">
                     <img src="img/user.png" width="150px" height="150px;">
                 </div>
             </div>
         </div>
     </div>
 
-    <form action="">
+    <form action="" method="POST">
+        <?php echo @$msg; ?>
                 <div class="row p-3 m-5">
                     <div class="col-sm-12 col-md-4">
                             <div class="form-group">
@@ -82,11 +93,6 @@ $row=mysqli_fetch_array($ret);
                             <label for="email">Email address:</label>
                             <input type="email" name="" class="form-control" value="<?php echo $row['email']; ?>" readonly>
                         </div>
-
-                        <!-- <div class="form-group">
-                            <label for="address">Address:</label>
-                            <input type="text" name="" value="<?php echo $row['address']; ?>" class="form-control">
-                        </div> -->
                         <div class="form-group">
                             <label for="address">Marital Status</label>
                             <input type="text" name="" value="<?php echo $row['marital_status']; ?>" class="form-control" readonly>
@@ -99,7 +105,7 @@ $row=mysqli_fetch_array($ret);
                     <div class="col-sm-12 col-md-4">
                         <div class="form-group">
                             <label for="position">position:</label>
-                            <input type="text" name="" class="form-control" value="<?php echo $row['position']; ?>" readonly>
+                            <input type="text" name="position" class="form-control" value="<?php echo $row['position']; ?>">
                         </div>
                         <div class="form-group">
                             <label for="phone">Phone Number:</label>
@@ -111,7 +117,7 @@ $row=mysqli_fetch_array($ret);
                         </div>
                         <div class="row">
                             <div class="col-lg-12">
-                                <a href=""><button class="btn btn-success">Update</button></a>
+                                <input type="submit" name="submit" class="btn btn-success" value="Update">
                             </div>
                         </div>
                     </div>

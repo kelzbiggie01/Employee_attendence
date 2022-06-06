@@ -8,7 +8,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-  	<title>Sidebar 01</title>
+  	<title>Employee Attendece</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -48,7 +48,7 @@
         <?php include 'topnav.php'; ?>
         
         <div class="row mt-3">
-        <div class="container bg-secondary p-2">
+        <div class="container text-dark p-2">
             <div class="row p-3">
                 <div class="col">
                     <h2>Add Empolyee Details </h2>
@@ -58,7 +58,6 @@
             <form action="engines/pro_add_employee.php" method="POST">
                 <div class="row p-3">
                     <div class="col-sm-12 col-md-4">
-                        <form>
                             <div class="form-group">
                                 <label for="name">Fullname:</label>
                                 <input type="text" name="name" class="form-control" placeholder="Enter Fullname" required>

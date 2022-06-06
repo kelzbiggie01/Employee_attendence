@@ -10,23 +10,27 @@ if(isset($_POST['login'])){
         $password = mysqli_real_escape_string($conn, $password);
 
     
-  $query = "SELECT * FROM emp_tbl WHERE email = '$username' AND password = '$password'";  
+  $query = "SELECT * FROM admin_tbl WHERE username = '$username' AND password = '$password'";  
         $result = mysqli_query($conn, $query);   
 
         $row = mysqli_fetch_array($result, MYSQLI_ASSOC);  
-        $count = mysqli_num_rows($result);  
+        $count = mysqli_num_rows($result); 
           
         if($count == 1){
             // Start the session
                 session_start();
-                $_SESSION['emp_id'] = $row['emp_id'];
-                $_SESSION["emp_username"] = $row['fullname'];
-
+                $_SESSION['emp_id'] = $row['admin_id'];
+                $_SESSION["emp_username"] = $row['username'];
 
             header('Location: dashboard.php');
 
         }else{
-            die("Sorry wrong username or password");
+            @$msg = '<div class="alert alert-warning alert-dismissible fade show" role="alert">
+  				<strong>Sorry</strong> Your Password didnt match
+  				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    			<span aria-hidden="true">&times;</span>
+  					</button>
+				</div>';
         }  
 }
 
@@ -60,6 +64,7 @@ if(isset($_POST['login'])){
 		      	<div class="icon d-flex align-items-center justify-content-center">
 		      		<span class="fa fa-user-o"></span>
 		      	</div>
+		      		<?php echo @$msg; ?>
 		      	<h3 class="text-center mb-4">Admin Login</h3>
 						<form action="" class="login-form" method="POST">
 		      		<div class="form-group">

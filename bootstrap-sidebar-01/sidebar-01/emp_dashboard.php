@@ -1,14 +1,16 @@
 <?php
 session_start();
 
+$page_rec = "dashboard";
+
 $page = "employee"; 
 
 require 'engines/connection.php';
 $emp_id = $_SESSION['emp_id'];
-$last_id = $_SESSION['last_id'];
+@$last_id = $_SESSION['last_id'];
 
 //the fetch query
-$query = mysqli_query($conn,"SELECT * FROM emp_attendence_tbl WHERE emp_id=$emp_id ORDER BY emp_attendenc_id DESC LIMIT 5");
+$query = mysqli_query($conn,"SELECT * FROM emp_attendence_tbl WHERE emp_id=$emp_id ORDER BY emp_attendenc_id DESC LIMIT 7");
 
 if (isset($_POST['checkout'])) {
     $k = date("H:i");
@@ -20,6 +22,9 @@ if (mysqli_query($conn, $sql)) {
 } else {
   echo "Error: Failed to checkout ".$sql . mysqli_error($conn);
 }
+}
+if ($last_id == "") {
+    echo "<script> alert('Sorry you must checkin first to view your checkins'); window.location='checkin_page.php'</script>";
 }
 
 

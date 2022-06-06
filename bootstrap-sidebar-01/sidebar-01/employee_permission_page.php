@@ -7,14 +7,11 @@ $emp_id = $_SESSION['emp_id'];
 //the fetch query
 $query = mysqli_query($conn,"SELECT * FROM emp_permission_tbl WHERE emp_id=$emp_id ORDER BY emp_id DESC" );
 
-
-
-
 ?>
 <!doctype html>
 <html lang="en">
   <head>
-  	<title>Sidebar 01</title>
+  	<title>Employee Attendence</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -57,10 +54,10 @@ $query = mysqli_query($conn,"SELECT * FROM emp_permission_tbl WHERE emp_id=$emp_
                         <table class="table">
                             <thead class="thead-dark">
                                 <tr>
-                                    <th scope="col">Permission ID</th>
+                                    <th scope="col">Date</th>
                                     <th scope="col">Permission Type</th>
                                     <th scope="col">Status</th>
-                                    <th scope="col">Answerd By</th>
+                                    <th scope="col">Granted By</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -69,7 +66,7 @@ $query = mysqli_query($conn,"SELECT * FROM emp_permission_tbl WHERE emp_id=$emp_
     
                                 ?>
                                 <tr>
-                                    <th scope="row"><?php echo $row['emp_permission_id']; ?></th>
+                                    <th scope="row"><?php echo $row['date_submitted']; ?></th>
                                     <td><?php echo $row['permission_type']; ?></td>
                                     <td><?php if($row['status'] == 0){echo "Received";}
                                     elseif ($row['status'] == 1) {
