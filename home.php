@@ -1,3 +1,6 @@
+<?php session_start(); 
+include 'engines/connection.php';
+?>
 <!doctype html>
 <html lang="en">
 
@@ -14,17 +17,39 @@
 
     <style type="text/css">
     .rectangle {
-        background-color: #FF80EE;
+        background-color: #80bfff;
         padding: 10px;
-        border-radius: 8px;
+        border-radius: 3px;
 
+    }
+
+    .rectangle:hover {
+        background-color: #000000;
+
+    }
+    .inner{
+        color: #ffffff;
+    }
+    .txt{
+        font-size: 30px;
+        font-weight: 900;
     }
     </style>
 
 </head>
 
 <body>
-    <?php include 'nav.php'; ?>
+    <?php include 'nav.php'; 
+    //count todays employ
+
+
+    //count absent employ
+
+
+    //count permmited
+
+    ?>
+
     <div class="container">
         <div class="row p-3">
             <h2>homepage</h2>
@@ -32,41 +57,33 @@
         <div class="row mt-2 p-3">
             <div class="col-sm-12 col-md-4 pb-3">
                 <div class="rectangle">
-                    Total Employee<br>78
+                    <div class="inner p-2 text-right">
+                         <span class="txt">45</span><br>
+                         <span>Total Employee</span>
+                    </div>
                 </div>
             </div>
             <div class="col-sm-12 col-md-4 pb-3">
                 <div class="rectangle">
-                    Employee at work
+                    <div class="inner p-2 text-right">
+                         <span class="txt">45</span><br>
+                         <span>Absent Employee</span>
+                    </div>
                 </div>
             </div>
             <div class="col-sm-12 col-md-4 pb-3">
                 <div class="rectangle">
-                    Absent Employee today
-                </div>
-            </div>
-        </div>
-
-        <div class="row mb-3 p-2">
-            <div class="col-sm-12 col-md-4 pb-3">
-                <div class="rectangle">
-                    Permited<br>78
-                </div>
-            </div>
-            <div class="col-sm-12 col-md-4 pb-3">
-                <div class="rectangle">
-                    Quited/Fired Employee
-                </div>
-            </div>
-            <div class="col-sm-12 col-md-4 pb-3">
-                <div class="rectangle">
-                    next retire employee
+                    <div class="inner p-2 text-right">
+                         <span class="txt">45</span><br>
+                         <span>Permited</span>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-
     <!-- Optional JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script type="text/javascript" src="styles/js/bootstrap.min.js"></script>
 </body>
 

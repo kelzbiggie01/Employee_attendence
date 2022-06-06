@@ -1,6 +1,10 @@
 <!doctype html>
 <html lang="en">
 
+<?php
+
+?>
+
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -14,7 +18,12 @@
 </head>
 
 <body>
-    <?php include 'nav.php'; ?>
+    <?php 
+    $page = "ind";
+    if($page == "index"){
+        include 'nav.php'; 
+    }
+    ?>
     <div class="row mt-3">
         <div class="container">
             <div class="card w-50 mx-auto">

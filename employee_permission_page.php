@@ -1,10 +1,13 @@
 <?php
+$page = "employee"; 
 session_start();
 require 'engines/connection.php';
 $emp_id = $_SESSION['emp_id'];
 
 //the fetch query
 $query = mysqli_query($conn,"SELECT * FROM emp_permission_tbl WHERE emp_id=$emp_id ORDER BY emp_id DESC" );
+
+
 
 
 ?>
@@ -30,9 +33,9 @@ $query = mysqli_query($conn,"SELECT * FROM emp_permission_tbl WHERE emp_id=$emp_
     <div class="container mt-3">
         <div class="row">
             <div class="col-md-12">
-                <div class="alert alert-warning" role="alert">
+                <!-- <div class="alert alert-warning" role="alert">
                     Hi welcome <?php echo @$_SESSION["emp_username"]; ?>
-                </div>
+                </div> -->
             </div>
         </div>
         <div class="row">
@@ -86,20 +89,6 @@ $query = mysqli_query($conn,"SELECT * FROM emp_permission_tbl WHERE emp_id=$emp_
                     </div>
                 </div>
             </div>
-        </div>
-
-        <div class="row text-center">
-            <div class="col-md-4 bg-primary">
-                permission
-            </div>
-
-            <div class="col-md-4 bg-warning">
-                absents
-            </div>
-            <div class="col-md-4 bg-success">
-                totoal check-in
-            </div>
-            
         </div>
     </div>
     </div>

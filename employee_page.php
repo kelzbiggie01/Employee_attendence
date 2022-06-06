@@ -1,13 +1,23 @@
 <?php
     session_start();
+    $page = "employee";
     require 'engines/connection.php';
 
     if(isset($_POST['checkin'])){
         $emp_id = $_SESSION['emp_id'];
         $emp_fullname = $_SESSION["emp_username"];
-        $checkin_time = date("H:i");
+        $checkin_time = date("h:i");
+        $timer = date("h");
+        $status;
 
-    $query = "INSERT into emp_attendence_tbl (emp_id,fullname,check_in_time) VALUES ('$emp_id','$emp_fullname','$checkin_time')";
+        if($timer < 8 ){
+           $status = 0;//status 0 == early
+        }
+        if ($timer >= 8) {
+            $status =1; //status 1 == late
+        }
+
+    $query = "INSERT into emp_attendence_tbl (emp_id,fullname,check_in_time,status) VALUES ('$emp_id','$emp_fullname','$checkin_time','$status')";
 
     if (mysqli_query($conn, $query)) {
         //getting last attendence id to update checkout

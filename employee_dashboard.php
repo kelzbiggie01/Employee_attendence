@@ -1,12 +1,14 @@
 <?php
 session_start();
 
+$page = "employee"; 
+
 require 'engines/connection.php';
 $emp_id = $_SESSION['emp_id'];
 $last_id = $_SESSION['last_id'];
 
 //the fetch query
-$query = mysqli_query($conn,"SELECT * FROM emp_attendence_tbl WHERE emp_id=$emp_id LIMIT 5");
+$query = mysqli_query($conn,"SELECT * FROM emp_attendence_tbl WHERE emp_id=$emp_id ORDER BY emp_attendenc_id DESC LIMIT 5");
 
 if (isset($_POST['checkout'])) {
     $k = date("H:i");
@@ -44,9 +46,9 @@ if (mysqli_query($conn, $sql)) {
     <div class="container mt-3">
         <div class="row">
             <div class="col-md-12">
-                <div class="alert alert-success" role="alert">
+                <!-- <div class="alert alert-success" role="alert">
                     Hi welcome username <?php echo date("H:i"); ?>
-                </div>
+                </div> -->
             </div>
         </div>
         <div class="row">
@@ -90,7 +92,7 @@ if (mysqli_query($conn, $sql)) {
                                     <td><?php echo $row['fullname']; ?></td>
                                     <td><?php echo $row['check_in_date']; ?></td>
                                     <td><?php echo $row['check_in_time']; ?></td>
-                                    <td><?php if($row['status']==1){echo "Good";}else{echo "Late";} ?></td>
+                                    <td><?php if($row['status']>=1){echo "late";}else{echo "early";} ?></td>
                                 </tr>
                                 <?php
                                     $NO++;

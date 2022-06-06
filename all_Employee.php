@@ -1,3 +1,9 @@
+<?php 
+session_start();
+include 'engines/connection.php';
+//the fetch query
+$query = mysqli_query($conn,"SELECT * FROM emp_tbl");
+?>
 <!doctype html>
 <html lang="en">
 
@@ -24,41 +30,34 @@
 
                 <table id="myTable">
                     <tr class="header">
-                        <th style="width:60%;">Name</th>
-                        <th style="width:40%;">Country</th>
+                        <th style="width:14%;">Name</th>
+                        <th>Position</th>
+                        <th>Department</th>
+                        <th>Phone Number</th>
+                        <th>Gender</th>
+                        <th>Marital Status</th>
+                        <th>Nida Number</th>
+                        <th>Pention Fund</th>
+                        <th>Action</th>
                     </tr>
+                    <?php
+                                 
+                                while ($row = mysqli_fetch_array($query)) {
+    
+                                ?>
                     <tr>
-                        <td>Alfreds Futterkiste</td>
-                        <td>Germany</td>
+                        <td><?php echo $row['fullname']; ?></td>
+                        <td><?php echo $row['position']; ?></td>
+                        <td><?php echo $row['department']; ?></td>
+                        <td><?php echo $row['phone_number']; ?></td>
+                        <td><?php echo $row['gender']; ?></td>
+                        <td><?php echo $row['marital_status']; ?></td>
+                        <td><?php echo $row['nat_id']; ?></td>
+                        <td><?php echo $row['pention_fund']; ?></td>
+                        <td><a href="employee_info.php?empinfo=<?php echo $row['emp_id'];?>"><span class="badge badge-pill badge-info" style="padding: 3px;border-radius: 10px;color: #fff;" title="Show all information">info</span></a></td>
                     </tr>
-                    <tr>
-                        <td>Berglunds snabbkop</td>
-                        <td>Sweden</td>
-                    </tr>
-                    <tr>
-                        <td>Island Trading</td>
-                        <td>UK</td>
-                    </tr>
-                    <tr>
-                        <td>Koniglich Essen</td>
-                        <td>Germany</td>
-                    </tr>
-                    <tr>
-                        <td>Laughing Bacchus Winecellars</td>
-                        <td>Canada</td>
-                    </tr>
-                    <tr>
-                        <td>Magazzini Alimentari Riuniti</td>
-                        <td>Italy</td>
-                    </tr>
-                    <tr>
-                        <td>North/South</td>
-                        <td>UK</td>
-                    </tr>
-                    <tr>
-                        <td>Paris specialites</td>
-                        <td>France</td>
-                    </tr>
+                    <?php
+                                } ?>
                 </table>
 
             </div>
@@ -97,3 +96,5 @@
 </body>
 
 </html>
+
+<a href="#pat-detail.php?editid=<?php echo $row['pat_id'];?>" title="Assign Medical"><i class="fa fa-medkit" style="font-size: 30px;"></i></a>

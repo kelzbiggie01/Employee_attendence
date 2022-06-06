@@ -48,7 +48,7 @@ if(isset($_POST['login'])){
 </head>
 
 <body>
-    <?php include 'nav.php'; ?>
+    <?php include 'nav2.php'; ?>
     <div class="row mt-3">
         <div class="container">
             <div class="card w-50 mx-auto">
@@ -66,6 +66,8 @@ if(isset($_POST['login'])){
                         </div>
                         <div class="form-outline m-3">
                             <button type="submit" name="login" class="btn btn-primary">login</button>
+
+                            <a href="index.php" class="btn btn-danger float-right">Back</a>
                         </div>
                     </form>
                     </p>
