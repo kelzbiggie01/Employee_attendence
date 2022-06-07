@@ -5,7 +5,7 @@
 
     if(isset($_POST['submit'])){
         if ($_POST['new_pass'] == $_POST['con_pass']) {
-            $admin_id = $_SESSION['emp_id'];
+            $admin_id = $_SESSION['admin_id'];
             $new_pass = $_POST['new_pass'];
             $old_pass = $_POST['old_pass'];
             

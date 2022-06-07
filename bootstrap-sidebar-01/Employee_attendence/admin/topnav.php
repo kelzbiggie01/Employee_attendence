@@ -1,7 +1,7 @@
 <?php
 //check if user is login
 
-if(@$_SESSION['admin_id'] == "" AND @$_SESSION['emp_id'] == ""){
+if(@$_SESSION['admin_id'] == "" AND @$_SESSION["admin_username"] == ""){
   header('Location: index.php');
 }
 

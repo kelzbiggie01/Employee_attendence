@@ -31,10 +31,10 @@
 	          <li>
               <a href="emp_dashboard.php">All Checkin</a>
 	          </li>
-	          <!--
+	          
 	          <li>
-              <a href="#">Contact</a>
-	          </li> -->
+              <a href="#">Change Password</a>
+	          </li>
 	        </ul>
 
 	      </div>

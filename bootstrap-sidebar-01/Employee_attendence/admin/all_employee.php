@@ -8,7 +8,7 @@ $query = mysqli_query($conn,"SELECT * FROM emp_tbl");
 <!doctype html>
 <html lang="en">
   <head>
-  	<title>Sidebar 01</title>
+  	<title>Employee Attendence</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 

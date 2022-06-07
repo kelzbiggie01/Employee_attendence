@@ -19,8 +19,8 @@ if(isset($_POST['login'])){
         if($count == 1){
             // Start the session
                 session_start();
-                $_SESSION['emp_id'] = $row['admin_id'];
-                $_SESSION["emp_username"] = $row['username'];
+                $_SESSION['admin_id'] = $row['admin_id'];
+                $_SESSION["admin_username"] = $row['username'];
 
             header('Location: dashboard.php');
 
