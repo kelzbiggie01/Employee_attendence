@@ -33,7 +33,7 @@
 	          </li>
 	          
 	          <li>
-              <a href="#">Change Password</a>
+              <a href="change_password.php">Change Password</a>
 	          </li>
 	        </ul>
 
